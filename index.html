@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Georgi Gerov - Quality Executive</title>
+    <!-- Google Fonts for Caveat handwriting -->
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap" rel="stylesheet">
     <style>
         /* ===== RESET & BASE STYLES ===== */
         * {
@@ -22,16 +24,20 @@
             flex-direction: column;
         }
         
-        /* ===== HEADER WITH LOGO ===== */
+        /* ===== HEADER WITH MASSIVE LOGO ===== */
         .header {
-            padding: 20px 30px;
+            padding: 40px 50px;
+            background: linear-gradient(to right, #ffffff, #f0f4f8);
+            border-bottom: 3px solid #2c5282;
         }
         
         .logo {
-            height: 70px;
+            height: 300px;  /* MASSIVE - 30x bigger than before! */
             width: auto;
-            max-width: 200px;
+            max-width: 800px;
             object-fit: contain;
+            display: block;
+            filter: drop-shadow(0 10px 15px rgba(44, 82, 130, 0.3));
         }
         
         /* ===== MAIN CONTENT - CARDS CENTERED ===== */
@@ -41,27 +47,27 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 20px;
-            max-width: 1200px;
+            padding: 40px 20px;
+            max-width: 1400px;
             margin: 0 auto;
             width: 100%;
         }
         
         .name-title {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
         }
         
         .name-title h1 {
-            font-size: 2.8em;
+            font-size: 3.5em;
             color: #0a3147;
-            margin-bottom: 5px;
+            margin-bottom: 10px;
             font-weight: 600;
         }
         
         .name-title .subtitle {
             color: #2c5282;
-            font-size: 1.3em;
+            font-size: 1.6em;
             font-weight: 300;
         }
         
@@ -69,65 +75,86 @@
         .section-grid {
             display: flex;
             flex-wrap: wrap;
-            gap: 30px;
+            gap: 40px;
             justify-content: center;
             align-items: center;
             width: 100%;
-            margin: 20px 0;
+            margin: 30px 0;
         }
         
         /* Individual Card */
         .section-card {
-            flex: 0 1 220px;
-            min-width: 200px;
+            flex: 0 1 280px;
+            min-width: 250px;
             background: white;
-            padding: 30px 20px 25px;
-            border-radius: 16px;
+            padding: 40px 25px 35px;
+            border-radius: 24px;
             text-align: center;
             cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 25px rgba(0, 20, 40, 0.1);
-            border: 2px solid transparent;
+            transition: all 0.4s ease;
+            box-shadow: 0 20px 35px rgba(0, 20, 40, 0.15);
+            border: 3px solid transparent;
         }
         
         .section-card:hover {
-            transform: translateY(-8px);
+            transform: translateY(-15px);
             border-color: #2c5282;
-            box-shadow: 0 15px 35px rgba(44, 82, 130, 0.2);
+            box-shadow: 0 25px 45px rgba(44, 82, 130, 0.25);
         }
         
         .card-icon {
-            font-size: 3em;
-            margin-bottom: 15px;
+            font-size: 4em;
+            margin-bottom: 20px;
         }
         
         .section-card h3 {
             color: #2c5282;
-            font-size: 1.3em;
+            font-size: 1.6em;
             margin-bottom: 5px;
             font-weight: 600;
         }
         
         /* Card with photo - only for About Me */
         .profile-photo {
-            width: 80px;
-            height: 80px;
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
             object-fit: cover;
-            margin-bottom: 15px;
-            border: 3px solid #2c5282;
+            margin-bottom: 20px;
+            border: 4px solid #2c5282;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        
+        /* Handwriting font for My Professional Journey */
+        .handwriting-title {
+            font-family: 'Caveat', 'Bradley Hand', 'Comic Sans MS', cursive;
+            font-size: 2em;
+            font-weight: 700;
+            color: #2c5282;
+            margin: 15px 0 0;
+            transform: rotate(-0.5deg);
+            text-shadow: 2px 2px 3px rgba(0,0,0,0.1);
+        }
+        
+        /* Scroll image styling */
+        .scroll-image {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 8px 12px rgba(139, 69, 19, 0.3));
         }
         
         /* ===== EXPANDED CONTENT AREA ===== */
         .expanded-content {
             display: none;
-            margin: 30px 0 40px;
-            padding: 35px;
+            margin: 40px 0 50px;
+            padding: 45px;
             background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            border-left: 6px solid #2c5282;
-            animation: slideDown 0.4s ease;
+            border-radius: 30px;
+            box-shadow: 0 30px 50px rgba(0, 0, 0, 0.15);
+            border-left: 8px solid #2c5282;
+            animation: slideDown 0.5s ease;
             width: 100%;
         }
         
@@ -138,7 +165,7 @@
         @keyframes slideDown {
             from {
                 opacity: 0;
-                transform: translateY(-20px);
+                transform: translateY(-30px);
             }
             to {
                 opacity: 1;
@@ -151,11 +178,11 @@
             float: right;
             background: none;
             border: none;
-            font-size: 2.2em;
+            font-size: 3em;
             cursor: pointer;
             color: #a0aec0;
             line-height: 1;
-            padding: 0 12px;
+            padding: 0 15px;
             transition: color 0.2s;
         }
         
@@ -166,36 +193,44 @@
         /* Section Headers */
         .expanded-content h2 {
             color: #0a3147;
-            font-size: 2em;
-            margin-bottom: 25px;
-            border-bottom: 3px solid #e2e8f0;
-            padding-bottom: 15px;
+            font-size: 2.8em;
+            margin-bottom: 30px;
+            border-bottom: 4px solid #e2e8f0;
+            padding-bottom: 20px;
         }
         
         .expanded-content h3 {
             color: #2c5282;
-            margin: 25px 0 15px;
+            font-size: 1.8em;
+            margin: 30px 0 20px;
         }
         
         /* ===== CV STYLES ===== */
         .cv-timeline {
-            margin: 20px 0;
+            margin: 25px 0;
         }
         
         .cv-item {
             display: flex;
-            margin-bottom: 20px;
-            padding: 15px;
+            margin-bottom: 25px;
+            padding: 20px;
             background: #f8fafc;
-            border-radius: 10px;
-            border-left: 4px solid #2c5282;
+            border-radius: 15px;
+            border-left: 6px solid #2c5282;
+            transition: transform 0.2s;
+        }
+        
+        .cv-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
         
         .cv-date {
-            min-width: 180px;
+            min-width: 220px;
             font-weight: bold;
             color: #2c5282;
-            padding-right: 20px;
+            padding-right: 25px;
+            font-size: 1.1em;
         }
         
         .cv-details {
@@ -205,51 +240,60 @@
         .cv-title {
             font-weight: bold;
             color: #0a3147;
+            font-size: 1.2em;
         }
         
         .cv-company {
             color: #4a5568;
             font-style: italic;
+            margin-top: 5px;
         }
         
         .cv-education {
             background: #e6f0ff;
-            padding: 20px;
-            border-radius: 10px;
-            margin-top: 25px;
+            padding: 25px;
+            border-radius: 15px;
+            margin-top: 30px;
+            border-left: 6px solid #2c5282;
         }
         
         /* ===== CONTACT STYLES ===== */
         .contact-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-            margin: 20px 0;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 30px 0;
         }
         
         .contact-card {
             background: #f8fafc;
-            border-radius: 16px;
-            padding: 25px;
+            border-radius: 20px;
+            padding: 35px 25px;
             text-align: center;
             border: 1px solid #e2e8f0;
+            transition: transform 0.3s;
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
         }
         
         .contact-icon-large {
-            font-size: 2.5em;
-            margin-bottom: 15px;
+            font-size: 4em;
+            margin-bottom: 20px;
         }
         
         .contact-label {
             color: #718096;
-            font-size: 0.9em;
+            font-size: 1.1em;
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
         
         .contact-value {
-            font-size: 1.2em;
+            font-size: 1.4em;
             color: #0a3147;
             word-break: break-all;
         }
@@ -269,102 +313,115 @@
             display: inline-block;
             background: #0077b5;
             color: white;
-            padding: 10px 25px;
-            border-radius: 30px;
+            padding: 12px 30px;
+            border-radius: 40px;
             text-decoration: none;
-            margin-top: 15px;
-            font-weight: 500;
+            margin-top: 20px;
+            font-weight: 600;
+            font-size: 1.1em;
             transition: background 0.3s;
+            border: 2px solid transparent;
         }
         
         .linkedin-btn:hover {
             background: #005582;
+            transform: scale(1.05);
         }
         
         /* ===== SERVICES GRID ===== */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 25px;
-            margin-top: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            margin-top: 25px;
         }
         
         .service-item {
             background: #f8fafc;
-            border-radius: 12px;
-            padding: 25px;
+            border-radius: 18px;
+            padding: 30px;
             border: 1px solid #e2e8f0;
+            transition: all 0.3s;
+        }
+        
+        .service-item:hover {
+            box-shadow: 0 15px 30px rgba(44, 82, 130, 0.15);
+            border-color: #2c5282;
         }
         
         .service-item h4 {
             color: #0a3147;
             margin-top: 0;
-            margin-bottom: 15px;
-            font-size: 1.2em;
-            border-bottom: 2px solid #cbd5e0;
-            padding-bottom: 8px;
+            margin-bottom: 20px;
+            font-size: 1.4em;
+            border-bottom: 3px solid #cbd5e0;
+            padding-bottom: 12px;
         }
         
         .benefits-box {
             background: #e6f0ff;
-            border-radius: 8px;
-            padding: 15px;
-            margin-top: 15px;
-            border-left: 4px solid #2c5282;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 20px;
+            border-left: 6px solid #2c5282;
         }
         
         /* ===== FOOTER ===== */
         .footer {
             text-align: center;
-            padding: 25px 20px;
-            margin-top: 40px;
-            border-top: 2px solid #cbd5e0;
+            padding: 30px 20px;
+            margin-top: 60px;
+            border-top: 4px solid #cbd5e0;
             color: #4a5568;
-            font-size: 0.95em;
+            font-size: 1.2em;
             width: 100%;
+            background: white;
         }
         
         ul {
             padding-left: 25px;
-            margin: 10px 0;
+            margin: 15px 0;
         }
         
         li {
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
         
         hr {
             border: none;
-            border-top: 2px solid #e2e8f0;
-            margin: 30px 0;
+            border-top: 3px solid #e2e8f0;
+            margin: 40px 0;
         }
         
         /* Mobile Responsive */
         @media (max-width: 600px) {
             .header {
-                padding: 15px;
+                padding: 20px;
+                text-align: center;
             }
             
             .logo {
-                height: 50px;
+                height: 150px;  /* Still big on mobile */
+                margin: 0 auto;
             }
             
             .name-title h1 {
-                font-size: 2.2em;
+                font-size: 2.5em;
             }
             
             .name-title .subtitle {
-                font-size: 1.1em;
+                font-size: 1.3em;
             }
             
             .section-grid {
                 flex-direction: column;
                 align-items: center;
+                gap: 25px;
             }
             
             .section-card {
                 width: 100%;
-                max-width: 280px;
+                max-width: 320px;
             }
             
             .cv-item {
@@ -372,14 +429,26 @@
             }
             
             .cv-date {
-                margin-bottom: 5px;
+                margin-bottom: 10px;
+            }
+            
+            .expanded-content {
+                padding: 25px;
+            }
+            
+            .expanded-content h2 {
+                font-size: 2.2em;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- HEADER WITH LOGO - TOP LEFT CORNER -->
+    <!-- HEADER WITH MASSIVE LOGO - TOP LEFT CORNER -->
     <div class="header">
         <img src="/images/Q CONS_LOGO.png" alt="Q CONS Logo" class="logo">
     </div>
@@ -401,13 +470,13 @@
                 <h3>About Me</h3>
             </div>
 
-            <!-- My CV Card - NO preview text -->
+            <!-- My Professional Journey Card with Scroll Image and Handwriting Font -->
             <div class="section-card" onclick="toggleSection('cv')">
-                <div class="card-icon">📄</div>
-                <h3>My CV</h3>
+                <img src="/images/scroll.png" alt="Scroll" class="scroll-image">
+                <h3 class="handwriting-title">My Professional Journey</h3>
             </div>
 
-            <!-- My Services Card - NO preview text -->
+            <!-- My Services Card -->
             <div class="section-card" onclick="toggleSection('services')">
                 <div class="card-icon">⚡</div>
                 <h3>My Services</h3>
@@ -425,23 +494,23 @@
             <button class="close-btn" onclick="toggleSection('about')">×</button>
             <h2>👤 About Me</h2>
             
-            <div style="font-size: 1.2em; line-height: 1.7; color: #2d3748; background: #f8fafc; padding: 25px; border-radius: 12px;">
+            <div style="font-size: 1.3em; line-height: 1.8; color: #2d3748; background: #f8fafc; padding: 30px; border-radius: 18px;">
                 <p style="margin: 0;">Transformational Enterprise Quality Executive driving regulatory confidence and commercial agility through innovative Quality Systems. Over 20 years of global experience building and leading high-performing quality organizations across Pharma, Biotech, and CROs. Proven record of designing enterprise QMS that reduce compliance risk while accelerating digital transformation (AI, eQMS) and influencing regulatory policy. Adept at engaging boards and health authorities to position quality as a strategic business enabler.</p>
             </div>
             
-            <div style="margin-top: 25px; display: flex; gap: 15px; flex-wrap: wrap; justify-content: center;">
-                <span style="background: #e2e8f0; padding: 8px 16px; border-radius: 20px; font-size: 0.9em;">🏭 Pharma</span>
-                <span style="background: #e2e8f0; padding: 8px 16px; border-radius: 20px; font-size: 0.9em;">🧬 Biotech</span>
-                <span style="background: #e2e8f0; padding: 8px 16px; border-radius: 20px; font-size: 0.9em;">📊 CROs</span>
-                <span style="background: #e2e8f0; padding: 8px 16px; border-radius: 20px; font-size: 0.9em;">🤖 AI & eQMS</span>
-                <span style="background: #e2e8f0; padding: 8px 16px; border-radius: 20px; font-size: 0.9em;">🌍 Global Experience</span>
+            <div style="margin-top: 30px; display: flex; gap: 15px; flex-wrap: wrap; justify-content: center;">
+                <span style="background: #e2e8f0; padding: 10px 20px; border-radius: 30px; font-size: 1em;">🏭 Pharma</span>
+                <span style="background: #e2e8f0; padding: 10px 20px; border-radius: 30px; font-size: 1em;">🧬 Biotech</span>
+                <span style="background: #e2e8f0; padding: 10px 20px; border-radius: 30px; font-size: 1em;">📊 CROs</span>
+                <span style="background: #e2e8f0; padding: 10px 20px; border-radius: 30px; font-size: 1em;">🤖 AI & eQMS</span>
+                <span style="background: #e2e8f0; padding: 10px 20px; border-radius: 30px; font-size: 1em;">🌍 Global Experience</span>
             </div>
         </div>
 
-        <!-- MY CV Expanded -->
+        <!-- MY PROFESSIONAL JOURNEY Expanded -->
         <div id="cv" class="expanded-content">
             <button class="close-btn" onclick="toggleSection('cv')">×</button>
-            <h2>📄 My CV</h2>
+            <h2 style="font-family: 'Caveat', cursive; font-size: 3em; color: #0a3147;">📜 My Professional Journey</h2>
             
             <div class="cv-timeline">
                 
@@ -520,7 +589,7 @@
             
             <div class="cv-education">
                 <h3 style="margin-top: 0; color: #0a3147;">Education</h3>
-                <p><strong>Medical University Plovdiv, Bulgaria</strong> - 1991-1997</p>
+                <p style="font-size: 1.2em;"><strong>Medical University Plovdiv, Bulgaria</strong> - 1991-1997</p>
             </div>
         </div>
 
@@ -676,9 +745,9 @@
                 </div>
             </div>
             
-            <div style="text-align: center; margin-top: 30px; padding: 20px; background: #f8fafc; border-radius: 12px;">
-                <p style="font-size: 1.1em; color: #0a3147;">Available for consulting engagements and quality leadership opportunities.</p>
-                <p style="color: #2c5282; margin-top: 10px;">Based in Switzerland | Global availability</p>
+            <div style="text-align: center; margin-top: 40px; padding: 25px; background: #f8fafc; border-radius: 18px;">
+                <p style="font-size: 1.3em; color: #0a3147;">Available for consulting engagements and quality leadership opportunities.</p>
+                <p style="color: #2c5282; margin-top: 15px; font-size: 1.1em;">Based in Switzerland | Global availability</p>
             </div>
         </div>
     </div>
