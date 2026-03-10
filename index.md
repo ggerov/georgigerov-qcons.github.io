@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="/assets/css/style.css">
 ---
-layout: home
-title: Q CONS
+layout: Q CONS
+title: Welcome to Q CONS
 ---
