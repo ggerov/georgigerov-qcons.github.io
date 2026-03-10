@@ -17,44 +17,71 @@
             line-height: 1.6;
             color: #1a2b3c;
             background: #f0f4f8;
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 30px 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
         
-        h1 {
-            font-size: 2.5em;
-            color: #0a3147;
-            margin-bottom: 10px;
+        /* ===== HEADER WITH LOGO ===== */
+        .header {
+            padding: 20px 30px;
+        }
+        
+        .logo {
+            height: 70px;
+            width: auto;
+            max-width: 200px;
+            object-fit: contain;
+        }
+        
+        /* ===== MAIN CONTENT - CARDS CENTERED ===== */
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        
+        .name-title {
             text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .name-title h1 {
+            font-size: 2.8em;
+            color: #0a3147;
+            margin-bottom: 5px;
             font-weight: 600;
         }
         
-        .subtitle {
-            text-align: center;
+        .name-title .subtitle {
             color: #2c5282;
-            font-size: 1.2em;
-            margin-bottom: 40px;
+            font-size: 1.3em;
             font-weight: 300;
-            border-bottom: 2px solid #cbd5e0;
-            padding-bottom: 20px;
         }
         
-        /* ===== HORIZONTAL CARD GRID ===== */
+        /* Horizontal Card Grid */
         .section-grid {
             display: flex;
             flex-wrap: wrap;
-            gap: 25px;
-            margin: 40px 0 50px;
+            gap: 30px;
             justify-content: center;
+            align-items: center;
+            width: 100%;
+            margin: 20px 0;
         }
         
         /* Individual Card */
         .section-card {
-            flex: 1 1 220px;
+            flex: 0 1 220px;
             min-width: 200px;
             background: white;
-            padding: 30px 20px;
+            padding: 30px 20px 25px;
             border-radius: 16px;
             text-align: center;
             cursor: pointer;
@@ -77,14 +104,18 @@
         .section-card h3 {
             color: #2c5282;
             font-size: 1.3em;
-            margin-bottom: 10px;
+            margin-bottom: 5px;
             font-weight: 600;
         }
         
-        .preview-text {
-            color: #4a5568;
-            font-size: 0.9em;
-            line-height: 1.4;
+        /* Card with photo - only for About Me */
+        .profile-photo {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+            border: 3px solid #2c5282;
         }
         
         /* ===== EXPANDED CONTENT AREA ===== */
@@ -97,6 +128,7 @@
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
             border-left: 6px solid #2c5282;
             animation: slideDown 0.4s ease;
+            width: 100%;
         }
         
         .expanded-content.active {
@@ -142,83 +174,69 @@
         
         .expanded-content h3 {
             color: #2c5282;
-            font-size: 1.4em;
             margin: 25px 0 15px;
         }
         
-        .expanded-content h4 {
-            color: #1e3a6b;
-            font-size: 1.2em;
-            margin: 20px 0 10px;
-            font-weight: 600;
+        /* ===== CV STYLES ===== */
+        .cv-timeline {
+            margin: 20px 0;
         }
         
-        /* Content Grid for Services */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 25px;
-            margin-top: 20px;
-        }
-        
-        .service-item {
-            background: #f8fafc;
-            border-radius: 12px;
-            padding: 25px;
-            border: 1px solid #e2e8f0;
-            transition: transform 0.2s;
-        }
-        
-        .service-item:hover {
-            transform: translateX(5px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            border-color: #2c5282;
-        }
-        
-        .service-item h4 {
-            color: #0a3147;
-            margin-top: 0;
-            margin-bottom: 15px;
-            font-size: 1.2em;
-            border-bottom: 2px solid #cbd5e0;
-            padding-bottom: 8px;
-        }
-        
-        .service-item strong {
-            color: #2c5282;
-        }
-        
-        .benefits-box {
-            background: #e6f0ff;
-            border-radius: 8px;
+        .cv-item {
+            display: flex;
+            margin-bottom: 20px;
             padding: 15px;
-            margin-top: 15px;
+            background: #f8fafc;
+            border-radius: 10px;
             border-left: 4px solid #2c5282;
         }
         
-        .benefits-box p {
-            margin: 0;
-            color: #1e3a6b;
+        .cv-date {
+            min-width: 180px;
+            font-weight: bold;
+            color: #2c5282;
+            padding-right: 20px;
         }
         
-        /* Contact Section */
+        .cv-details {
+            flex: 1;
+        }
+        
+        .cv-title {
+            font-weight: bold;
+            color: #0a3147;
+        }
+        
+        .cv-company {
+            color: #4a5568;
+            font-style: italic;
+        }
+        
+        .cv-education {
+            background: #e6f0ff;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 25px;
+        }
+        
+        /* ===== CONTACT STYLES ===== */
         .contact-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
             margin: 20px 0;
         }
         
         .contact-card {
             background: #f8fafc;
             border-radius: 16px;
-            padding: 30px;
+            padding: 25px;
             text-align: center;
             border: 1px solid #e2e8f0;
         }
         
         .contact-icon-large {
-            font-size: 3em;
+            font-size: 2.5em;
             margin-bottom: 15px;
         }
         
@@ -227,13 +245,12 @@
             font-size: 0.9em;
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
         }
         
         .contact-value {
-            font-size: 1.4em;
+            font-size: 1.2em;
             color: #0a3147;
-            font-weight: 500;
             word-break: break-all;
         }
         
@@ -248,40 +265,65 @@
             border-bottom-color: #2c5282;
         }
         
-        /* Summary Box */
-        .summary-box {
-            background: #1e3a6b;
+        .linkedin-btn {
+            display: inline-block;
+            background: #0077b5;
             color: white;
+            padding: 10px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            margin-top: 15px;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+        
+        .linkedin-btn:hover {
+            background: #005582;
+        }
+        
+        /* ===== SERVICES GRID ===== */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+        
+        .service-item {
+            background: #f8fafc;
             border-radius: 12px;
             padding: 25px;
-            margin-top: 30px;
+            border: 1px solid #e2e8f0;
         }
         
-        .summary-box h4 {
-            color: white;
+        .service-item h4 {
+            color: #0a3147;
             margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+            border-bottom: 2px solid #cbd5e0;
+            padding-bottom: 8px;
         }
         
-        .summary-box ul {
-            list-style-type: none;
-            padding: 0;
+        .benefits-box {
+            background: #e6f0ff;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 15px;
+            border-left: 4px solid #2c5282;
         }
         
-        .summary-box li {
-            margin-bottom: 10px;
-            padding-left: 24px;
-            position: relative;
+        /* ===== FOOTER ===== */
+        .footer {
+            text-align: center;
+            padding: 25px 20px;
+            margin-top: 40px;
+            border-top: 2px solid #cbd5e0;
+            color: #4a5568;
+            font-size: 0.95em;
+            width: 100%;
         }
         
-        .summary-box li:before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: #90cdf4;
-            font-weight: bold;
-        }
-        
-        /* List Styles */
         ul {
             padding-left: 25px;
             margin: 10px 0;
@@ -297,291 +339,351 @@
             margin: 30px 0;
         }
         
-        /* Footer */
-        .footer {
-            text-align: center;
-            margin-top: 60px;
-            padding-top: 20px;
-            border-top: 2px solid #cbd5e0;
-            color: #718096;
-            font-size: 0.9em;
-        }
-        
         /* Mobile Responsive */
         @media (max-width: 600px) {
-            body {
+            .header {
                 padding: 15px;
             }
             
-            h1 {
-                font-size: 2em;
+            .logo {
+                height: 50px;
+            }
+            
+            .name-title h1 {
+                font-size: 2.2em;
+            }
+            
+            .name-title .subtitle {
+                font-size: 1.1em;
             }
             
             .section-grid {
                 flex-direction: column;
+                align-items: center;
             }
             
             .section-card {
                 width: 100%;
+                max-width: 280px;
             }
             
-            .expanded-content {
-                padding: 20px;
+            .cv-item {
+                flex-direction: column;
             }
             
-            .services-grid {
-                grid-template-columns: 1fr;
+            .cv-date {
+                margin-bottom: 5px;
             }
         }
     </style>
 </head>
 <body>
 
-    <body>
-    <!-- Header with Logo and Title -->
-    <div style="display: flex; align-items: center; gap: 20px; margin-bottom: 20px; flex-wrap: wrap;">
-        <!-- Logo on left -->
-        <div>
-            <img src="/images/Q CONS_LOGO.png" alt="Q CONS Logo" style="height: 60px; width: auto; max-width: 200px; object-fit: contain;">
-        </div>
-        
-        <!-- Title and subtitle on right (or next to logo) -->
-        <div>
-            <h1 style="margin: 0;">Georgi Gerov</h1>
-            <div class="subtitle" style="margin: 5px 0 0;">Transformational Enterprise Quality Executive</div>
-        </div>
+    <!-- HEADER WITH LOGO - TOP LEFT CORNER -->
+    <div class="header">
+        <img src="/images/qcons-logo.png" alt="Q CONS Logo" class="logo">
     </div>
 
-    <!-- Horizontal Cards -->
-    <div class="section-grid">
-        <div class="section-card" onclick="toggleSection('about')">
-            <!-- Replace the emoji with your photo -->
-            <img src="/images/georgi.jpg" alt="Georgi Gerov" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin-bottom: 15px; border: 3px solid #2c5282;">
-            <h3>About Me</h3>
-            <p class="preview-text">20+ years global experience in Pharma, Biotech & CROs</p>
-        </div>
-
-        <div class="section-card" onclick="toggleSection('cv')">
-            <div class="card-icon">📄</div>
-            <h3>My CV</h3>
-            <p class="preview-text">Executive profile & achievements</p>
-        </div>
-
-        <div class="section-card" onclick="toggleSection('services')">
-            <div class="card-icon">⚡</div>
-            <h3>My Services</h3>
-            <p class="preview-text">8 strategic quality & compliance services</p>
-        </div>
-
-        <div class="section-card" onclick="toggleSection('contact')">
-            <div class="card-icon">📫</div>
-            <h3>My Contacts</h3>
-            <p class="preview-text">Get in touch directly</p>
-        </div>
-    </div>
-
-    <!-- ABOUT ME Expanded -->
-    <div id="about" class="expanded-content">
-        <button class="close-btn" onclick="toggleSection('about')">×</button>
-        <h2>👤 About Me</h2>
+    <!-- MAIN CONTENT - CENTERED -->
+    <div class="main-content">
         
-        <div style="display: flex; flex-wrap: wrap; gap: 30px; align-items: flex-start;">
-            <!-- Photo Column -->
-            <div style="flex: 0 0 200px; text-align: center;">
-                <img src="/images/georgi.jpg" alt="Georgi Gerov" style="width: 100%; max-width: 200px; border-radius: 50%; box-shadow: 0 10px 25px rgba(0,0,0,0.2); border: 4px solid #2c5282;">
-                <p style="margin-top: 10px; color: #2c5282; font-weight: 500;">Georgi Gerov</p>
+        <!-- Name and Title -->
+        <div class="name-title">
+            <h1>Georgi Gerov</h1>
+            <div class="subtitle">Transformation Enterprise Quality Executive</div>
+        </div>
+
+        <!-- Horizontal Cards -->
+        <div class="section-grid">
+            <!-- About Me Card with Photo -->
+            <div class="section-card" onclick="toggleSection('about')">
+                <img src="/images/georgi.jpg" alt="Georgi Gerov" class="profile-photo">
+                <h3>About Me</h3>
+            </div>
+
+            <!-- My CV Card - NO preview text -->
+            <div class="section-card" onclick="toggleSection('cv')">
+                <div class="card-icon">📄</div>
+                <h3>My CV</h3>
+            </div>
+
+            <!-- My Services Card - NO preview text -->
+            <div class="section-card" onclick="toggleSection('services')">
+                <div class="card-icon">⚡</div>
+                <h3>My Services</h3>
+            </div>
+
+            <!-- My Contacts Card -->
+            <div class="section-card" onclick="toggleSection('contact')">
+                <div class="card-icon">📫</div>
+                <h3>My Contacts</h3>
+            </div>
+        </div>
+
+        <!-- ABOUT ME Expanded -->
+        <div id="about" class="expanded-content">
+            <button class="close-btn" onclick="toggleSection('about')">×</button>
+            <h2>👤 About Me</h2>
+            
+            <div style="font-size: 1.2em; line-height: 1.7; color: #2d3748; background: #f8fafc; padding: 25px; border-radius: 12px;">
+                <p style="margin: 0;">Transformational Enterprise Quality Executive driving regulatory confidence and commercial agility through innovative Quality Systems. Over 20 years of global experience building and leading high-performing quality organizations across Pharma, Biotech, and CROs. Proven record of designing enterprise QMS that reduce compliance risk while accelerating digital transformation (AI, eQMS) and influencing regulatory policy. Adept at engaging boards and health authorities to position quality as a strategic business enabler.</p>
             </div>
             
-            <!-- Text Column -->
-            <div style="flex: 1; min-width: 300px;">
-                <div style="font-size: 1.2em; line-height: 1.7; color: #2d3748; background: #f8fafc; padding: 25px; border-radius: 12px;">
-                    <p style="margin: 0;">Transformational Enterprise Quality Executive driving regulatory confidence and commercial agility through innovative Quality Systems. Over 20 years of global experience building and leading high-performing quality organizations across Pharma, Biotech, and CROs. Proven record of designing enterprise QMS that reduce compliance risk while accelerating digital transformation (AI, eQMS) and influencing regulatory policy. Adept at engaging boards and health authorities to position quality as a strategic business enabler.</p>
+            <div style="margin-top: 25px; display: flex; gap: 15px; flex-wrap: wrap; justify-content: center;">
+                <span style="background: #e2e8f0; padding: 8px 16px; border-radius: 20px; font-size: 0.9em;">🏭 Pharma</span>
+                <span style="background: #e2e8f0; padding: 8px 16px; border-radius: 20px; font-size: 0.9em;">🧬 Biotech</span>
+                <span style="background: #e2e8f0; padding: 8px 16px; border-radius: 20px; font-size: 0.9em;">📊 CROs</span>
+                <span style="background: #e2e8f0; padding: 8px 16px; border-radius: 20px; font-size: 0.9em;">🤖 AI & eQMS</span>
+                <span style="background: #e2e8f0; padding: 8px 16px; border-radius: 20px; font-size: 0.9em;">🌍 Global Experience</span>
+            </div>
+        </div>
+
+        <!-- MY CV Expanded -->
+        <div id="cv" class="expanded-content">
+            <button class="close-btn" onclick="toggleSection('cv')">×</button>
+            <h2>📄 My CV</h2>
+            
+            <div class="cv-timeline">
+                
+                <div class="cv-item">
+                    <div class="cv-date">November 2023 - December 2024</div>
+                    <div class="cv-details">
+                        <div class="cv-title">Senior Quality Assurance & Training Director</div>
+                        <div class="cv-company">Optimapharm</div>
+                    </div>
                 </div>
                 
-                <div style="margin-top: 20px; display: flex; gap: 15px; flex-wrap: wrap; justify-content: center;">
-                    <span style="background: #e2e8f0; padding: 8px 16px; border-radius: 20px; font-size: 0.9em;">🏭 Pharma</span>
-                    <span style="background: #e2e8f0; padding: 8px 16px; border-radius: 20px; font-size: 0.9em;">🧬 Biotech</span>
-                    <span style="background: #e2e8f0; padding: 8px 16px; border-radius: 20px; font-size: 0.9em;">📊 CROs</span>
-                    <span style="background: #e2e8f0; padding: 8px 16px; border-radius: 20px; font-size: 0.9em;">🤖 AI & eQMS</span>
-                    <span style="background: #e2e8f0; padding: 8px 16px; border-radius: 20px; font-size: 0.9em;">🌍 Global Experience</span>
+                <div class="cv-item">
+                    <div class="cv-date">March 2021 - November 2023</div>
+                    <div class="cv-details">
+                        <div class="cv-title">Director Quality Assurance & Compliance</div>
+                        <div class="cv-company">Allucent</div>
+                    </div>
                 </div>
+                
+                <div class="cv-item">
+                    <div class="cv-date">March 2013 - December 2020</div>
+                    <div class="cv-details">
+                        <div class="cv-title">Associate Director Quality Control, EMEA</div>
+                        <div class="cv-company">Covance</div>
+                    </div>
+                </div>
+                
+                <div class="cv-item">
+                    <div class="cv-date">January 2011 - March 2013</div>
+                    <div class="cv-details">
+                        <div class="cv-title">Senior Manager Quality Control, EMEA</div>
+                        <div class="cv-company">Covance</div>
+                    </div>
+                </div>
+                
+                <div class="cv-item">
+                    <div class="cv-date">September 2008 - January 2011</div>
+                    <div class="cv-details">
+                        <div class="cv-title">Manager Clinical Operations Bulgaria</div>
+                        <div class="cv-company">Covance</div>
+                    </div>
+                </div>
+                
+                <div class="cv-item">
+                    <div class="cv-date">April 2006 - September 2008</div>
+                    <div class="cv-details">
+                        <div class="cv-title">Senior CRA Bulgaria</div>
+                        <div class="cv-company">Covance</div>
+                    </div>
+                </div>
+                
+                <div class="cv-item">
+                    <div class="cv-date">April 2006 - September 2008</div>
+                    <div class="cv-details">
+                        <div class="cv-title">CRA Bulgaria</div>
+                        <div class="cv-company">Covance</div>
+                    </div>
+                </div>
+                
+                <div class="cv-item">
+                    <div class="cv-date">July 2003 - April 2006</div>
+                    <div class="cv-details">
+                        <div class="cv-title">CRA Bulgaria</div>
+                        <div class="cv-company">PSI Pharma Support</div>
+                    </div>
+                </div>
+                
+                <div class="cv-item">
+                    <div class="cv-date">February 1998 - July 2003</div>
+                    <div class="cv-details">
+                        <div class="cv-title">Practicing Physician</div>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="cv-education">
+                <h3 style="margin-top: 0; color: #0a3147;">Education</h3>
+                <p><strong>Medical University Plovdiv, Bulgaria</strong> - 1991-1997</p>
+            </div>
+        </div>
+
+        <!-- MY SERVICES Expanded -->
+        <div id="services" class="expanded-content">
+            <button class="close-btn" onclick="toggleSection('services')">×</button>
+            <h2>⚡ My Services</h2>
+            
+            <div class="services-grid">
+                <!-- Service 1 -->
+                <div class="service-item">
+                    <h4>1. Quality Management System (QMS) Development & Optimization</h4>
+                    <p><strong>Services Offered:</strong></p>
+                    <ul>
+                        <li>Design, implementation, and global harmonization of QMS aligned with ICH GCP, ISO 9001, and regional regulatory frameworks.</li>
+                        <li>Streamlining documentation control, Serious Breach, CAPA, change management, and deviation management systems.</li>
+                        <li>Development and revision of corporate SOP frameworks and quality governance models.</li>
+                    </ul>
+                    <div class="benefits-box">
+                        <p><strong>Benefits:</strong> Harmonized, compliant, and agile QMS structure supporting business scalability. Reduced operational complexity and enhanced alignment across regions. Improved audit and inspection readiness.</p>
+                    </div>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="service-item">
+                    <h4>2. Inspection Readiness & Regulatory Compliance</h4>
+                    <p><strong>Services Offered:</strong></p>
+                    <ul>
+                        <li>Comprehensive inspection readiness programs (FDA, EMA, MHRA, PMDA) including pre-inspection assessments and mock audits.</li>
+                        <li>Coaching and training Subject Matter Experts (SMEs) for inspection interviews and evidence presentation.</li>
+                        <li>Development of inspection playbooks, control room strategy, and post-inspection CAPA follow-up management.</li>
+                    </ul>
+                    <div class="benefits-box">
+                        <p><strong>Benefits:</strong> Maintained "inspection-ready every day" culture. Reduced risk of critical findings through proactive preparation. Strengthened organizational capability in inspection performance.</p>
+                    </div>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-item">
+                    <h4>3. Clinical Quality Assurance & GCP Oversight</h4>
+                    <p><strong>Services Offered:</strong></p>
+                    <ul>
+                        <li>Development of GCP oversight frameworks across sponsors, CROs, and investigator sites.</li>
+                        <li>Conduct of GCP audits (system, process, vendor, investigator site, and study-specific).</li>
+                        <li>Quality governance across Clinical Operations, Medical Affairs, and Pharmacovigilance.</li>
+                    </ul>
+                    <div class="benefits-box">
+                        <p><strong>Benefits:</strong> Enhanced GCP compliance and data integrity across the clinical trial lifecycle. Reduced risk exposure through proactive quality oversight.</p>
+                    </div>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="service-item">
+                    <h4>4. External Service Providers & CRO Quality Oversight</h4>
+                    <p><strong>Services Offered:</strong></p>
+                    <ul>
+                        <li>Qualification, auditing, and ongoing performance monitoring of External Service Providers and CROs.</li>
+                        <li>Development of Quality Agreements and governance mechanisms for outsourced activities.</li>
+                        <li>Oversight of technology service providers, including validated IT systems and data integrity controls.</li>
+                    </ul>
+                    <div class="benefits-box">
+                        <p><strong>Benefits:</strong> Strengthened partnerships through clear quality expectations and accountability. Continuous performance improvement and compliance transparency.</p>
+                    </div>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="service-item">
+                    <h4>5. Quality Training, Capability Building & Organizational Development</h4>
+                    <p><strong>Services Offered:</strong></p>
+                    <ul>
+                        <li>Design and delivery of bespoke QA/QC and GxP training programs, including regulatory expectations, audit skills, and inspection readiness.</li>
+                        <li>Development of competency matrices and continuous learning frameworks.</li>
+                    </ul>
+                    <div class="benefits-box">
+                        <p><strong>Benefits:</strong> Empowered teams with consistent quality knowledge and inspection confidence. Improved quality ownership across functions.</p>
+                    </div>
+                </div>
+                
+                <!-- Service 6 -->
+                <div class="service-item">
+                    <h4>6. Quality Risk Management & Continuous Improvement</h4>
+                    <p><strong>Services Offered:</strong></p>
+                    <ul>
+                        <li>Implementation of ICH Q9(R1)-based risk management frameworks.</li>
+                        <li>Serious Breach Management coordination and oversight.</li>
+                        <li>Development of Key Quality Indicators (KQIs) and dashboards.</li>
+                        <li>Facilitation of root cause analysis and CAPA effectiveness checks.</li>
+                    </ul>
+                    <div class="benefits-box">
+                        <p><strong>Benefits:</strong> Proactive detection and mitigation of compliance risks. Evidence-based decision-making through data-driven metrics.</p>
+                    </div>
+                </div>
+                
+                <!-- Service 7 -->
+                <div class="service-item">
+                    <h4>7. Digital Quality Transformation</h4>
+                    <p><strong>Services Offered:</strong></p>
+                    <ul>
+                        <li>Implementation and optimization of eQMS, DMS, and LMS platforms.</li>
+                        <li>Digitalization of quality workflows including CAPA and audit management.</li>
+                        <li>Integration of data analytics for real-time quality performance monitoring.</li>
+                    </ul>
+                    <div class="benefits-box">
+                        <p><strong>Benefits:</strong> Increased operational efficiency through automation. Real-time access to quality insights.</p>
+                    </div>
+                </div>
+                
+                <!-- Service 8 -->
+                <div class="service-item">
+                    <h4>8. Audit & Inspection Management</h4>
+                    <p><strong>Services Offered:</strong></p>
+                    <ul>
+                        <li>Conduct of internal, external, and for-cause audits across GxP areas.</li>
+                        <li>Development of global audit programs based on risk.</li>
+                        <li>CAPA oversight and trend analysis.</li>
+                    </ul>
+                    <div class="benefits-box">
+                        <p><strong>Benefits:</strong> End-to-end visibility of compliance maturity. Improved regulatory inspection outcomes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MY CONTACTS Expanded -->
+        <div id="contact" class="expanded-content">
+            <button class="close-btn" onclick="toggleSection('contact')">×</button>
+            <h2>📫 My Contacts</h2>
+            
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-icon-large">📧</div>
+                    <div class="contact-label">Email</div>
+                    <div class="contact-value">
+                        <a href="mailto:georgi.gerov@yahoo.com">georgi.gerov@yahoo.com</a>
+                    </div>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon-large">📱</div>
+                    <div class="contact-label">Phone</div>
+                    <div class="contact-value">
+                        <a href="tel:+41764899079">+41 76 489 90 79</a>
+                    </div>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon-large">💼</div>
+                    <div class="contact-label">LinkedIn</div>
+                    <div class="contact-value">
+                        <a href="https://www.linkedin.com/in/georgigerov/" target="_blank">linkedin.com/in/georgigerov</a>
+                    </div>
+                    <a href="https://www.linkedin.com/in/georgigerov/" target="_blank" class="linkedin-btn">Connect on LinkedIn</a>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px; padding: 20px; background: #f8fafc; border-radius: 12px;">
+                <p style="font-size: 1.1em; color: #0a3147;">Available for consulting engagements and quality leadership opportunities.</p>
+                <p style="color: #2c5282; margin-top: 10px;">Based in Switzerland | Global availability</p>
             </div>
         </div>
     </div>
 
-    <!-- MY SERVICES Expanded -->
-    <div id="services" class="expanded-content">
-        <button class="close-btn" onclick="toggleSection('services')">×</button>
-        <h2>⚡ My Services</h2>
-        
-        <div class="services-grid">
-            
-            <!-- Service 1 -->
-            <div class="service-item">
-                <h4>1. Quality Management System (QMS) Development & Optimization</h4>
-                <p><strong>Services Offered:</strong></p>
-                <ul>
-                    <li>Design, implementation, and global harmonization of QMS aligned with ICH GCP, ISO 9001, and regional regulatory frameworks.</li>
-                    <li>Streamlining documentation control, Serious Breach, CAPA, change management, and deviation management systems.</li>
-                    <li>Development and revision of corporate SOP frameworks and quality governance models.</li>
-                </ul>
-                <div class="benefits-box">
-                    <p><strong>Benefits for Clients:</strong> Harmonized, compliant, and agile QMS structure supporting business scalability. Reduced operational complexity and enhanced alignment and efficiency across regions. Improved audit and inspection readiness through process transparency and traceability.</p>
-                </div>
-            </div>
-            
-            <!-- Service 2 -->
-            <div class="service-item">
-                <h4>2. Inspection Readiness & Regulatory Compliance</h4>
-                <p><strong>Services Offered:</strong></p>
-                <ul>
-                    <li>Comprehensive inspection readiness programs (FDA, EMA, MHRA, PMDA) including pre-inspection assessments and mock audits.</li>
-                    <li>Coaching and training Subject Matter Experts (SMEs) for inspection interviews and evidence presentation.</li>
-                    <li>Development of inspection playbooks, control room strategy, and post-inspection CAPA follow-up management.</li>
-                </ul>
-                <div class="benefits-box">
-                    <p><strong>Benefits for Clients:</strong> Maintained "inspection-ready every day" culture and confidence in facing regulatory authorities. Reduced risk of critical findings through proactive preparation. Strengthened organizational capability and consistency in inspection performance.</p>
-                </div>
-            </div>
-            
-            <!-- Service 3 -->
-            <div class="service-item">
-                <h4>3. Clinical Quality Assurance & GCP Oversight</h4>
-                <p><strong>Services Offered:</strong></p>
-                <ul>
-                    <li>Development of GCP oversight frameworks across sponsors, CROs, and investigator sites.</li>
-                    <li>Conduct of GCP audits (system, process, vendor, investigator site, and study-specific).</li>
-                    <li>Quality governance across Clinical Operations, Medical Affairs, and Pharmacovigilance.</li>
-                </ul>
-                <div class="benefits-box">
-                    <p><strong>Benefits for Clients:</strong> Enhanced GCP compliance and data integrity across the clinical trial lifecycle. Reduced risk exposure through proactive quality oversight. Increased Clients' confidence and successful regulatory submission support.</p>
-                </div>
-            </div>
-            
-            <!-- Service 4 -->
-            <div class="service-item">
-                <h4>4. External Service Providers & CRO Quality Oversight</h4>
-                <p><strong>Services Offered:</strong></p>
-                <ul>
-                    <li>Qualification, auditing, and ongoing performance monitoring of External Service Providers and CROs.</li>
-                    <li>Development of Quality Agreements and governance mechanisms for outsourced activities.</li>
-                    <li>Oversight of technology service providers, including validated IT systems and data integrity controls.</li>
-                </ul>
-                <div class="benefits-box">
-                    <p><strong>Benefits for Clients:</strong> Strengthened partnerships through clear quality expectations and accountability. Continuous performance improvement and compliance transparency. Risk-based External Service Providers management aligned with business strategy and regulatory requirements.</p>
-                </div>
-            </div>
-            
-            <!-- Service 5 -->
-            <div class="service-item">
-                <h4>5. Quality Training, Capability Building & Organizational Development</h4>
-                <p><strong>Services Offered:</strong></p>
-                <ul>
-                    <li>Design and delivery of bespoke QA/QC and GxP training programs, including regulatory expectations, audit skills, and inspection readiness.</li>
-                    <li>Development of competency matrices and continuous learning frameworks.</li>
-                </ul>
-                <div class="benefits-box">
-                    <p><strong>Benefits for Clients:</strong> Empowered teams with consistent quality knowledge and inspection confidence. Improved quality ownership across functions and reduced dependency on reactive quality management. Long-term sustainability of quality culture and leadership development.</p>
-                </div>
-            </div>
-            
-            <!-- Service 6 -->
-            <div class="service-item">
-                <h4>6. Quality Risk Management, Serious Breach Management & Continuous Improvement</h4>
-                <p><strong>Services Offered:</strong></p>
-                <ul>
-                    <li>Implementation of ICH Q9(R1)-based risk management frameworks to proactively identify, assess, and mitigate compliance and operational risks.</li>
-                    <li>Serious Breach Management: coordination of assessment, investigation, reporting, and CAPA oversight, ensuring regulatory compliance and data integrity.</li>
-                    <li>Development and implementation of Key Quality Indicators (KQIs) and Key Performance Indicators (KPIs) to monitor compliance, process performance, and inspection readiness.</li>
-                    <li>Design and deployment of Quality Dashboards, providing real-time visibility into compliance trends, quality metrics, and audit outcomes.</li>
-                    <li>Facilitation of root cause analysis and CAPA effectiveness checks, embedding lessons learned across global teams.</li>
-                    <li>Leadership of continuous improvement initiatives using Lean Six Sigma and risk-based quality analytics.</li>
-                </ul>
-                <div class="benefits-box">
-                    <p><strong>Benefits for Clients:</strong> Proactive detection and mitigation of serious compliance risks and process deviations. Evidence-based decision-making through transparent and data-driven performance metrics. Enhanced cross-functional collaboration and alignment on quality objectives. Strengthened regulatory confidence through demonstrable control and continuous improvement culture.</p>
-                </div>
-            </div>
-            
-            <!-- Service 7 -->
-            <div class="service-item">
-                <h4>7. Digital Quality Transformation</h4>
-                <p><strong>Services Offered:</strong></p>
-                <ul>
-                    <li>Implementation and optimization of eQMS, DMS, and LMS platforms (e.g., Veeva Vault, Zen QMS etc.).</li>
-                    <li>Digitalization of quality workflows including CAPA, audit management, and training processes.</li>
-                    <li>Integration of data analytics and visualization tools for real-time quality performance monitoring.</li>
-                </ul>
-                <div class="benefits-box">
-                    <p><strong>Benefits for Clients:</strong> Increased operational efficiency through automation and digital standardization. Real-time access to quality insights and predictive risk indicators. Seamless collaboration and compliance consistency across global teams.</p>
-                </div>
-            </div>
-            
-            <!-- Service 8 -->
-            <div class="service-item">
-                <h4>8. Audit & Inspection Management</h4>
-                <p><strong>Services Offered:</strong></p>
-                <ul>
-                    <li>Conduct of internal, external, and for-cause audits across GxP areas.</li>
-                    <li>Development and execution of global audit programs based on risk and performance trends.</li>
-                    <li>CAPA oversight, root cause verification, and trend analysis to sustain compliance improvement.</li>
-                </ul>
-                <div class="benefits-box">
-                    <p><strong>Benefits for Clients:</strong> End-to-end visibility of compliance maturity and risk areas. Improved regulatory inspection outcomes through early detection and remediation. Continuous assurance of operational excellence and data reliability.</p>
-                </div>
-            </div>
-        </div>
-        
-        <hr>
-        
-        <!-- Summary of Benefits -->
-        <div class="summary-box">
-            <h4>Summary of Client Benefits:</h4>
-            <ul>
-                <li>Enhanced compliance confidence and inspection readiness across global operations.</li>
-                <li>Accelerated quality maturity through harmonized systems and measurable performance indicators.</li>
-                <li>Strengthened cross-functional collaboration and proactive risk mitigation.</li>
-                <li>Realization of operational excellence through digital innovation and continuous improvement.</li>
-            </ul>
-        </div>
-    </div>
-
-    <!-- MY CONTACTS Expanded -->
-    <div id="contact" class="expanded-content">
-        <button class="close-btn" onclick="toggleSection('contact')">×</button>
-        <h2>📫 My Contacts</h2>
-        
-        <div class="contact-grid">
-            <div class="contact-card">
-                <div class="contact-icon-large">📧</div>
-                <div class="contact-label">Email</div>
-                <div class="contact-value">
-                    <a href="mailto:georgi.gerov@yahoo.com">georgi.gerov@yahoo.com</a>
-                </div>
-            </div>
-            
-            <div class="contact-card">
-                <div class="contact-icon-large">📱</div>
-                <div class="contact-label">Phone</div>
-                <div class="contact-value">
-                    <a href="tel:+41764899079">+41 76 489 90 79</a>
-                </div>
-            </div>
-            
-            <div class="contact-card">
-                <div class="contact-icon-large">💼</div>
-                <div class="contact-label">Professional</div>
-                <div class="contact-value">
-                    <a href="#">LinkedIn Profile</a>
-                </div>
-            </div>
-        </div>
-        
-        <div style="text-align: center; margin-top: 30px; padding: 20px; background: #f8fafc; border-radius: 12px;">
-            <p style="font-size: 1.1em; color: #0a3147;">Available for consulting engagements and quality leadership opportunities.</p>
-            <p style="color: #2c5282; margin-top: 10px;">Based in Switzerland | Global availability</p>
-        </div>
-    </div>
-
+    <!-- FOOTER - CENTERED AT BOTTOM WITH LINE -->
     <div class="footer">
         © 2026 Georgi Gerov | Transformational Enterprise Quality Executive
     </div>
