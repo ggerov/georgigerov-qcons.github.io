@@ -73,24 +73,26 @@
             font-weight: 500;
         }
         
-        /* Horizontal Card Grid */
+        /* Horizontal Card Grid - ALL CARDS ON ONE ROW */
         .section-grid {
             display: flex;
-            flex-wrap: wrap;
-            gap: 40px;
+            flex-wrap: nowrap;  /* Changed from wrap to nowrap for single row */
+            gap: 30px;
             justify-content: center;
             align-items: center;
             width: 100%;
             margin: 30px 0;
+            overflow-x: auto;  /* Allows scrolling on very small screens */
+            padding: 10px 0;
         }
         
         /* Individual Card - ALL SAME SIZE */
         .section-card {
-            flex: 0 1 280px;
-            min-width: 250px;
-            height: 320px;  /* Fixed height for all cards */
+            flex: 0 0 220px;  /* Fixed width, no shrinking */
+            min-width: 200px;
+            height: 300px;
             background: white;
-            padding: 40px 25px 35px;
+            padding: 30px 20px 25px;
             border-radius: 24px;
             text-align: center;
             cursor: pointer;
@@ -112,15 +114,15 @@
         .section-card h3 {
             font-family: 'Caveat', cursive;
             color: #2c5282;
-            font-size: 2.2em;
+            font-size: 2em;
             margin-top: 15px;
             font-weight: 600;
         }
         
         /* Card with photo - only for About Me */
         .profile-photo {
-            width: 120px;
-            height: 120px;
+            width: 100px;
+            height: 100px;
             border-radius: 50%;
             object-fit: cover;
             margin-bottom: 10px;
@@ -130,8 +132,8 @@
         
         /* Card image styling - ALL SAME SIZE */
         .card-image {
-            width: 100px;
-            height: 100px;
+            width: 80px;
+            height: 80px;
             object-fit: contain;
             margin-bottom: 10px;
             filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.2));
@@ -163,6 +165,58 @@
                 opacity: 1;
                 transform: translateY(0);
             }
+        }
+        
+        /* Close Button */
+        .close-btn {
+            float: right;
+            background: none;
+            border: none;
+            font-size: 3em;
+            cursor: pointer;
+            color: #a0aec0;
+            line-height: 1;
+            padding: 0 15px;
+            transition: color 0.2s;
+        }
+        
+        .close-btn:hover {
+            color: #e53e3e;
+        }
+        
+        /* Section Headers */
+        .expanded-content h2 {
+            font-family: 'Caveat', cursive;
+            color: #0a3147;
+            font-size: 3.5em;
+            margin-bottom: 30px;
+            border-bottom: 4px solid #e2e8f0;
+            padding-bottom: 20px;
+        }
+        
+        .expanded-content h3 {
+            font-family: 'Caveat', cursive;
+            color: #2c5282;
+            font-size: 2.5em;
+            margin: 30px 0 20px;
+        }
+        
+        /* About Me Tags - No Icons */
+        .tag-cloud {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        
+        .tag {
+            background: #e2e8f0;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-family: 'Caveat', cursive;
+            font-size: 1.5em;
+            color: #2c5282;
         }
         
         /* ===== SCROLL ANIMATION STYLES ===== */
@@ -285,56 +339,114 @@
             animation: fadeInRow 0.5s ease 2.0s forwards;
         }
         
-        /* Close Button */
-        .close-btn {
-            float: right;
-            background: none;
-            border: none;
-            font-size: 3em;
-            cursor: pointer;
-            color: #a0aec0;
-            line-height: 1;
-            padding: 0 15px;
-            transition: color 0.2s;
-        }
-        
-        .close-btn:hover {
-            color: #e53e3e;
-        }
-        
-        /* Section Headers */
-        .expanded-content h2 {
-            font-family: 'Caveat', cursive;
-            color: #0a3147;
-            font-size: 3.5em;
-            margin-bottom: 30px;
-            border-bottom: 4px solid #e2e8f0;
-            padding-bottom: 20px;
-        }
-        
-        .expanded-content h3 {
-            font-family: 'Caveat', cursive;
-            color: #2c5282;
-            font-size: 2.5em;
-            margin: 30px 0 20px;
-        }
-        
-        /* About Me Tags - No Icons */
-        .tag-cloud {
+        /* ===== BLOG STYLES ===== */
+        .blog-titles {
             display: flex;
+            flex-direction: column;
             gap: 15px;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin-top: 30px;
+            margin: 20px 0;
         }
         
-        .tag {
-            background: #e2e8f0;
-            padding: 10px 20px;
-            border-radius: 30px;
+        .blog-title-item {
             font-family: 'Caveat', cursive;
+            font-size: 2.2em;
+            color: #2c5282;
+            padding: 15px 25px;
+            background: #f8fafc;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.05);
+        }
+        
+        .blog-title-item:hover {
+            transform: translateX(10px);
+            border-color: #2c5282;
+            background: #e6f0ff;
+        }
+        
+        .blog-article-content {
+            display: none;
+            margin-top: 30px;
+            padding: 30px;
+            background: #f8fafc;
+            border-radius: 20px;
+            border-left: 6px solid #2c5282;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .blog-article-content.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .blog-article-title {
+            font-family: 'Caveat', cursive;
+            font-size: 2.5em;
+            color: #0a3147;
+            margin-bottom: 25px;
+            border-bottom: 3px solid #2c5282;
+            padding-bottom: 10px;
+        }
+        
+        .blog-text {
+            font-family: 'Caveat', cursive;
+            font-size: 1.4em;
+            line-height: 1.8;
+            color: #2d3748;
+        }
+        
+        .blog-text h4 {
+            font-size: 1.8em;
+            color: #2c5282;
+            margin: 25px 0 15px;
+        }
+        
+        .blog-text h5 {
             font-size: 1.5em;
             color: #2c5282;
+            margin: 20px 0 10px;
+        }
+        
+        .blog-text ul {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+        
+        .blog-text li {
+            margin-bottom: 8px;
+        }
+        
+        .blog-text strong {
+            color: #2c5282;
+        }
+        
+        .references {
+            margin-top: 30px;
+            padding: 20px;
+            background: #e6f0ff;
+            border-radius: 15px;
+            border-left: 6px solid #2c5282;
+        }
+        
+        .references p {
+            font-family: 'Caveat', cursive;
+            font-size: 1.2em;
+            margin-bottom: 5px;
+        }
+        
+        .anchor-box {
+            background: #e6f0ff;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border-left: 4px solid #2c5282;
+            font-style: italic;
         }
         
         /* ===== CONTACT STYLES ===== */
@@ -402,60 +514,6 @@
         .linkedin-btn:hover {
             background: #005582;
             transform: scale(1.05);
-        }
-        
-        /* ===== BLOG STYLES ===== */
-        .blog-article {
-            background: #f8fafc;
-            border-radius: 20px;
-            padding: 40px;
-            margin-top: 20px;
-        }
-        
-        .blog-title {
-            font-family: 'Caveat', cursive;
-            font-size: 3em;
-            color: #0a3147;
-            margin-bottom: 30px;
-            text-align: center;
-            border-bottom: 3px solid #2c5282;
-            padding-bottom: 15px;
-        }
-        
-        .blog-content {
-            font-family: 'Caveat', cursive;
-            font-size: 1.4em;
-            line-height: 1.8;
-            color: #2d3748;
-        }
-        
-        .blog-content h4 {
-            font-size: 1.8em;
-            color: #2c5282;
-            margin: 30px 0 15px;
-        }
-        
-        .blog-content ul {
-            margin: 15px 0;
-            padding-left: 30px;
-        }
-        
-        .blog-content li {
-            margin-bottom: 10px;
-        }
-        
-        .references {
-            margin-top: 40px;
-            padding: 20px;
-            background: #e6f0ff;
-            border-radius: 15px;
-            border-left: 6px solid #2c5282;
-        }
-        
-        .references p {
-            font-family: 'Caveat', cursive;
-            font-size: 1.2em;
-            margin-bottom: 5px;
         }
         
         /* ===== SERVICES GRID ===== */
@@ -533,6 +591,32 @@
         }
         
         /* Mobile Responsive */
+        @media (max-width: 1200px) {
+            .section-grid {
+                gap: 20px;
+            }
+            
+            .section-card {
+                flex: 0 0 200px;
+                height: 280px;
+            }
+        }
+        
+        @media (max-width: 900px) {
+            .section-grid {
+                gap: 15px;
+            }
+            
+            .section-card {
+                flex: 0 0 180px;
+                height: 260px;
+            }
+            
+            .section-card h3 {
+                font-size: 1.6em;
+            }
+        }
+        
         @media (max-width: 600px) {
             .header {
                 padding: 20px;
@@ -553,14 +637,12 @@
             }
             
             .section-grid {
-                flex-direction: column;
-                align-items: center;
-                gap: 25px;
+                flex-wrap: wrap;
+                justify-content: center;
             }
             
             .section-card {
-                width: 100%;
-                max-width: 320px;
+                flex: 0 0 280px;
                 height: 300px;
             }
             
@@ -587,16 +669,8 @@
                 grid-template-columns: 1fr;
             }
             
-            .scroll-title {
-                font-size: 2.5em;
-            }
-            
-            .blog-title {
-                font-size: 2.2em;
-            }
-            
-            .blog-content {
-                font-size: 1.2em;
+            .blog-title-item {
+                font-size: 1.8em;
             }
         }
     </style>
@@ -617,7 +691,7 @@
             <div class="subtitle">Transformation Enterprise Quality Executive</div>
         </div>
 
-        <!-- Horizontal Cards -->
+        <!-- Horizontal Cards - ALL ON ONE ROW -->
         <div class="section-grid">
             <!-- About Me Card with Photo -->
             <div class="section-card" onclick="toggleSection('about')">
@@ -879,10 +953,17 @@
             <button class="close-btn" onclick="toggleSection('blog')">×</button>
             <h2>Blog</h2>
             
-            <div class="blog-article">
-                <div class="blog-title">5 Critical Steps for Inspection Readiness in Clinical Trials</div>
-                
-                <div class="blog-content">
+            <div class="blog-titles">
+                <div class="blog-title-item" onclick="showArticle('article1', event)">📄 5 Critical Steps for Inspection Readiness in Clinical Trials</div>
+                <div class="blog-title-item" onclick="showArticle('article2', event)">📄 Building A Quality Culture</div>
+                <div class="blog-title-item" onclick="showArticle('article3', event)">📄 Integrated Trial Process</div>
+                <div class="blog-title-item" onclick="showArticle('article4', event)">📄 End-To-End Quality Process</div>
+            </div>
+            
+            <!-- Article 1 -->
+            <div id="article1" class="blog-article-content">
+                <div class="blog-article-title">5 Critical Steps for Inspection Readiness in Clinical Trials</div>
+                <div class="blog-text">
                     <p>Inspection readiness is no longer a "prepare-for-a-visit" exercise — regulators expect a continuous state of demonstrable control, data integrity, and rapid, evidence-based responses. Recent regulatory activity changes how Sponsors and CROs should prepare.</p>
                     
                     <p>Below are five practical, prioritized steps you can implement immediately.</p>
@@ -915,6 +996,174 @@
                         <p>6. Inspections and Compliance, EMA Annual report 2024</p>
                         <p>7. Good Clinical Practice for Clinical Trials, MHRA</p>
                     </div>
+                </div>
+            </div>
+            
+            <!-- Article 2 -->
+            <div id="article2" class="blog-article-content">
+                <div class="blog-article-title">Building A Quality Culture</div>
+                <div class="blog-text">
+                    <p>In today's highly regulated life sciences environment, quality is no longer just compliance—it is a driver of trust, innovation, and sustainable business success. Both the FDA's Case for Quality (CfQ) initiative and the EMA's reflections on Quality Culture converge on a central theme: quality must be embedded into the mindset, systems, and daily practices of every organization—not bolted on at the end.</p>
+                    
+                    <p>To operationalize this vision, companies must take deliberate steps to transform governance, processes, and culture. Below are six critical steps that organizations can adopt to build a proactive, inspection-ready, and resilient quality culture.</p>
+                    
+                    <h4>1. Establish Strong Governance and Leadership Commitment</h4>
+                    <ul>
+                        <li>Set the "tone from the top" by making quality a standing agenda item in executive reviews.</li>
+                        <li>Build governance bodies that integrate quality, compliance, and business performance.</li>
+                        <li>Link leadership incentives to quality outcomes, not just financial metrics.</li>
+                    </ul>
+                    <div class="anchor-box">
+                        <strong>Anchor:</strong> FDA CfQ emphasizes leadership accountability, while EMA highlights visible commitment from senior management as the cornerstone of quality culture.
+                    </div>
+                    
+                    <h4>2. Define and Embed Quality Metrics Beyond Compliance</h4>
+                    <ul>
+                        <li>Introduce leading indicators alongside lagging metrics.</li>
+                        <li>Use dashboards and data transparency to monitor culture health and identify systemic risks.</li>
+                        <li>Apply predictive analytics to detect risks before they impact patients or compliance.</li>
+                    </ul>
+                    <div class="anchor-box">
+                        <strong>Anchor:</strong> FDA CfQ advocates shifting from compliance metrics to performance metrics, while EMA stresses the need for data-driven insights into culture maturity.
+                    </div>
+                    
+                    <h4>3. Foster an Open, Learning-Oriented Environment</h4>
+                    <ul>
+                        <li>Encourage a "speak-up culture" where employees report issues without fear of retribution.</li>
+                        <li>Treat deviations and near-misses as opportunities for learning, not blame.</li>
+                        <li>Implement formal mechanisms for capturing lessons learned and sharing best practices across functions.</li>
+                    </ul>
+                    <div class="anchor-box">
+                        <strong>Anchor:</strong> EMA notes psychological safety as key to sustaining quality, while FDA highlights "quality maturity" as the ability to learn and adapt.
+                    </div>
+                    
+                    <h4>4. Invest in Competency and Continuous Development</h4>
+                    <ul>
+                        <li>Develop training beyond SOP compliance: critical thinking, risk management, and data integrity.</li>
+                        <li>Equip staff to understand why quality matters—not just what to do.</li>
+                        <li>Recognize and reward behaviors that demonstrate ownership of quality.</li>
+                    </ul>
+                    <div class="anchor-box">
+                        <strong>Anchor:</strong> Both FDA and EMA underline that building capability and mindset are more impactful than check-the-box training.
+                    </div>
+                    
+                    <h4>5. Integrate Digital and Data Governance</h4>
+                    <ul>
+                        <li>Validate computerized systems, ensure audit trails, and control data access.</li>
+                        <li>Develop governance frameworks for emerging tools such as AI/ML used in trial conduct or manufacturing.</li>
+                        <li>Monitor data integrity as a continuous, real-time process—not a retrospective exercise.</li>
+                    </ul>
+                    <div class="anchor-box">
+                        <strong>Anchor:</strong> FDA warning letters repeatedly cite data integrity failures; EMA echoes that trust depends on robust digital governance.
+                    </div>
+                    
+                    <h4>6. Maintain Continuous Inspection Readiness</h4>
+                    <ul>
+                        <li>Adopt "always-ready" documentation practices across sites and systems.</li>
+                        <li>Conduct regular mock inspections to test resilience and responsiveness.</li>
+                        <li>Embed inspection readiness into daily operations—not as a scramble before regulator visits.</li>
+                    </ul>
+                    <div class="anchor-box">
+                        <strong>Anchor:</strong> EMA's reflections stress sustainable readiness, while FDA's CfQ expects maturity models that demonstrate resilience under inspection pressure.
+                    </div>
+                    
+                    <h4>Final Thoughts: From Compliance to Culture</h4>
+                    <p>The FDA's Case for Quality and EMA's Quality Culture reflections send a unified message: regulators are no longer satisfied with companies that "pass inspections." They expect organizations to demonstrate a living culture of quality that safeguards patients, enables innovation, and drives operational excellence.</p>
+                    
+                    <p>The companies that succeed will be those that see quality as a strategic enabler, not a regulatory burden—building systems, leadership, and cultures that earn the trust of regulators, patients, and partners alike.</p>
+                </div>
+            </div>
+            
+            <!-- Article 3 -->
+            <div id="article3" class="blog-article-content">
+                <div class="blog-article-title">Integrated Trial Process</div>
+                <div class="blog-text">
+                    <p>The biopharmaceutical industry stands at a crossroads. We are pioneering revolutionary therapies—from gene editing to personalized cancer treatments—yet the clinical development process itself often remains siloed, slow, and staggeringly expensive. The traditional, sequential approach to clinical trials is no longer sustainable.</p>
+                    
+                    <p>The solution? A strategic shift towards an Integrated Trial Process.</p>
+                    
+                    <p>This is not just a buzzword; it is a fundamental re-imagining of how we conduct clinical research. It is about breaking down internal and external barriers to create a seamless, data-driven ecosystem from study concept to regulatory submission. But with greater integration and technological adoption comes greater responsibility, especially concerning the bedrock of our industry: compliance with GxP principles and evolving Regulatory Authority expectations.</p>
+                    
+                    <h4>What is an Integrated Trial Process?</h4>
+                    <p>An Integrated Trial Process is a holistic framework where all functional areas—Clinical Operations, Data Management, Biostatistics, Regulatory Affairs, Pharmacovigilance, and Quality Assurance—work in concert from the very beginning of a trial's lifecycle.</p>
+                    
+                    <p><strong>Key pillars include:</strong></p>
+                    <ul>
+                        <li><strong>Unified Technology Platforms:</strong> Moving away from disparate systems to integrated eClinical platforms (EDC, eCOA, CTMS, RTSM) that interoperate, creating a single source of truth.</li>
+                        <li><strong>Risk-Based Quality Management (RBQM):</strong> Proactively identifying and mitigating critical risks to patient safety and data integrity, which is now central to modern regulatory thinking.</li>
+                        <li><strong>Centralized Monitoring:</strong> Leveraging analytics and centralized data review to oversee study conduct in real-time.</li>
+                        <li><strong>End-to-End Data Flow:</strong> Designing processes so that data flows seamlessly from the patient to the regulatory submission package, minimizing manual handling.</li>
+                    </ul>
+                    
+                    <h4>The Compliance Imperative: GxP in an Integrated World</h4>
+                    <p>Integration empowers a more robust and demonstrable adherence to GxP. The fundamental principles of Good Clinical Practice (GCP), Good Laboratory Practice (GLP), and Good Manufacturing Practice (GMP) remain non-negotiable.</p>
+                    
+                    <p><strong>Here is how integration strengthens compliance:</strong></p>
+                    
+                    <h5>1. Enhanced Data Integrity (ALCOA+ Principles):</h5>
+                    <p>An integrated system creates a natural, secure audit trail. When data flows directly from a source system (like an eCOA device) into the EDC, it inherently supports Attributable, Legible, Contemporaneous, Original, and Accurate (ALCOA+) data, a core requirement.</p>
+                    
+                    <h5>2. Proactive Quality Oversight (ICH E6 (R3)):</h5>
+                    <p>The latest ICH E6 (R3) draft principles emphasize a streamlined, risk-based approach focused on critical-to-quality factors. An integrated process, with its continuous data review, is the operational engine for this. It moves us beyond document-centric checklists to a data-driven, quality-focused system that aligns perfectly with the new direction of GCP.</p>
+                    
+                    <h5>3. Effective Management of External Service Providers:</h5>
+                    <p>The term "Vendor Management" has evolved. As reflected in modern guidelines, "External Service Provider (ESP)" more accurately describes these critical partners, emphasizing shared responsibility. An integrated process requires and enables better oversight of ESPs through transparent, real-time access to performance and quality metrics, ensuring seamless compliance across the entire trial ecosystem.</p>
+                    
+                    <h4>Meeting the Bar for Modern Regulatory Authorities</h4>
+                    <p>Global Regulatory Authorities are not just encouraging this shift; they are building frameworks for it. The updated ICH E6 (R3) and ICH E8 (R1) guidelines provide the foundation for a more flexible, efficient, and quality-driven approach.</p>
+                    <ul>
+                        <li><strong>ICH E6 (R3):</strong> This revision is a paradigm shift. It encourages the use of technological innovations and focuses on the conduct of critical trial activities, regardless of who performs them (sponsor or ESP). An integrated trial process is the practical application of these principles.</li>
+                        <li><strong>ICH E8 (R1):</strong> This guideline on General Considerations for Clinical Studies reinforces the concept of quality by design, which is inherent to an integrated approach from the very first protocol draft.</li>
+                        <li><strong>FDA & EMA on Digital Health:</strong> Regulatory support for digital endpoints, decentralized clinical trials (DCTs), and real-world evidence (RWE) necessitates an integrated, interoperable, and validated technology stack. A compliant, integrated infrastructure is the prerequisite for this evolution.</li>
+                    </ul>
+                    
+                    <h4>The Path Forward: Challenges and Commitment</h4>
+                    <p>Transitioning to a fully integrated model requires:</p>
+                    <ul>
+                        <li><strong>Upfront Investment:</strong> In technology, training, and change management.</li>
+                        <li><strong>Cross-Functional Collaboration:</strong> A cultural shift where departments and External Service Providers operate as a unified team.</li>
+                        <li><strong>Mastering Interoperability:</strong> Ensuring all systems and partners can work together seamlessly while maintaining data integrity and security, in line with the updated GCP principles.</li>
+                    </ul>
+                    
+                    <p>The commitment, however, is worth it. The payoff is immense: more agile trials, robust data, and the accelerated delivery of safe and effective therapies to patients.</p>
+                </div>
+            </div>
+            
+            <!-- Article 4 -->
+            <div id="article4" class="blog-article-content">
+                <div class="blog-article-title">End-To-End Quality Process</div>
+                <div class="blog-text">
+                    <p>In today's pharmaceutical and biotech landscape, quality is no longer a checkpoint—it is a continuum. Regulatory agencies such as the FDA, EMA, MHRA, and WHO increasingly demand that organizations embed quality principles throughout the entire product lifecycle, from early R&D and clinical trials to manufacturing, distribution, and post-market surveillance. The message is clear: patient safety, data integrity, and regulatory compliance must be designed into processes, not inspected in at the end.</p>
+                    
+                    <h4>1. Quality by Design (QbD) – Building Quality from the Start</h4>
+                    <p>Guided by ICH Q8 (Pharmaceutical Development) and ICH Q11 (Drug Substance Development and Manufacture), regulators expect sponsors to apply QbD principles early. This means defining Critical Quality Attributes (CQAs) and Critical Process Parameters (CPPs) upfront to ensure robustness and reproducibility. QbD shifts the paradigm from reactive quality control to proactive quality assurance.</p>
+                    
+                    <h4>2. Integrated Quality Management Systems (QMS)</h4>
+                    <p>ICH Q10 Pharmaceutical Quality System is the global benchmark. A strong QMS, aligned with ICH Q10, is the foundation of regulatory compliance. Regulators look for:</p>
+                    <ul>
+                        <li>Documented risk-based policies and SOPs</li>
+                        <li>Governance structure defining accountability across R&D, GCP, GMP, and GDP</li>
+                        <li>Evidence that QMS processes are consistently applied across the supply chain</li>
+                    </ul>
+                    
+                    <h4>3. Data Integrity and Digital Governance</h4>
+                    <p>Data integrity remains a top enforcement priority. FDA warning letters and MHRA findings repeatedly cite failures in audit trails, access controls, and system validation. Regulators expect full compliance with ALCOA+ principles (Attributable, Legible, Contemporaneous, Original, Accurate, plus Complete, Consistent, Enduring, and Available).</p>
+                    
+                    <p>As AI, machine learning, and advanced analytics become integral to clinical development and manufacturing, governance of digital tools and algorithms is emerging as a regulatory hot spot. Authorities expect validation, transparency, and oversight frameworks to ensure data-driven decisions remain reliable and compliant.</p>
+                    
+                    <h4>4. Continuous Monitoring and Risk Management</h4>
+                    <p>End-to-end quality requires risk-based oversight. The updated ICH Q9(R1) reinforces the need for systematic identification, prioritization, and mitigation of risks that could impact patient safety and data integrity. Regulators are moving toward risk-based inspections and expect companies to demonstrate proactive monitoring using Key Performance Indicators (KPI), Key Risk Indicators (KRI), and trend analytics.</p>
+                    
+                    <h4>5. External Service Provider(s) and Partner Oversight</h4>
+                    <p>With the global reliance on various external service providers (CRO, CMO, technology providers, etc.), third-party oversight is a regulatory expectation, not an option. Sponsors must perform documented due diligence, routine audits, and performance monitoring to ensure external partners operate to the same GxP and QMS standards. Failures at vendor level are increasingly treated as sponsor accountability gaps.</p>
+                    
+                    <h4>6. Sustaining and Inspection Ready Quality Culture</h4>
+                    <p>Perhaps the most critical element is a culture of quality. Regulators now look beyond procedures and systems — they assess organizational culture. The FDA's Case for Quality and the EMA's reflections on Quality Culture highlight the importance of embedding accountability, empowerment, and continuous readiness. Inspection readiness is not an event; it is a mindset and daily practice that sustains compliance and builds patient trust.</p>
+                    
+                    <h4>Final Thoughts</h4>
+                    <p>End-to-end quality integration is now a regulatory imperative. Organizations that build strong governance frameworks, embrace digital and data integrity, and foster a culture of continuous improvement will not only meet FDA, EMA, MHRA, and WHO expectations but also gain a competitive edge in operational excellence and sustainable growth.</p>
+                    
+                    <p>Quality is not just compliance — it is the foundation of patient safety, trust, and innovation.</p>
                 </div>
             </div>
         </div>
@@ -984,11 +1233,26 @@
             }
         }
 
+        function showArticle(articleId, event) {
+            event.stopPropagation(); // Prevent triggering the card click
+            
+            // Hide all articles
+            const articles = document.querySelectorAll('.blog-article-content');
+            articles.forEach(article => {
+                article.classList.remove('active');
+            });
+            
+            // Show selected article
+            const selectedArticle = document.getElementById(articleId);
+            selectedArticle.classList.add('active');
+        }
+
         // Close when clicking outside
         document.addEventListener('click', function(event) {
             if (!event.target.closest('.section-card') && 
                 !event.target.closest('.expanded-content') && 
-                !event.target.closest('.close-btn')) {
+                !event.target.closest('.close-btn') &&
+                !event.target.closest('.blog-title-item')) {
                 document.querySelectorAll('.expanded-content').forEach(s => {
                     s.classList.remove('active');
                 });
