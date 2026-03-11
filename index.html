@@ -24,20 +24,44 @@
             flex-direction: column;
         }
         
-        /* ===== HEADER WITH ENHANCED LOGO ===== */
+        /* ===== HEADER WITH LOGO AND TITLE ON SAME ROW ===== */
         .header {
-            padding: 20px 50px 10px;
+            padding: 20px 50px;
             background: transparent;
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
         }
         
         .logo {
-            height: 350px;  /* Reduced by 30% from 500px */
+            height: 350px;
             width: auto;
-            max-width: 980px;  /* Reduced proportionally */
+            max-width: 980px;
             object-fit: contain;
-            display: block;
             filter: drop-shadow(0 15px 25px rgba(44, 82, 130, 0.25));
-            margin: 0 auto 0 0;  /* Align left */
+        }
+        
+        .header-title {
+            flex: 1;
+        }
+        
+        .header-title h1 {
+            font-family: 'Caveat', cursive;
+            font-size: 4.5em;
+            color: #0a3147;
+            margin-bottom: 5px;
+            font-weight: 700;
+            text-shadow: 2px 2px 3px rgba(0,0,0,0.1);
+            line-height: 1.2;
+        }
+        
+        .header-title .subtitle {
+            font-family: 'Caveat', cursive;
+            color: #2c5282;
+            font-size: 2.2em;
+            font-weight: 500;
+            line-height: 1.2;
         }
         
         /* ===== MAIN CONTENT - CARDS CENTERED ===== */
@@ -47,31 +71,10 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 0px 20px 40px;
+            padding: 20px 20px 40px;
             max-width: 1400px;
             margin: 0 auto;
             width: 100%;
-        }
-        
-        .name-title {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-        
-        .name-title h1 {
-            font-family: 'Caveat', cursive;
-            font-size: 4.5em;
-            color: #0a3147;
-            margin-bottom: 10px;
-            font-weight: 700;
-            text-shadow: 2px 2px 3px rgba(0,0,0,0.1);
-        }
-        
-        .name-title .subtitle {
-            font-family: 'Caveat', cursive;
-            color: #2c5282;
-            font-size: 2.2em;
-            font-weight: 500;
         }
         
         /* Horizontal Card Grid - ALL CARDS ON ONE ROW */
@@ -603,8 +606,16 @@
             }
             
             .logo {
-                height: 280px;  /* Scaled down for smaller screens */
+                height: 280px;
                 max-width: 780px;
+            }
+            
+            .header-title h1 {
+                font-size: 3.8em;
+            }
+            
+            .header-title .subtitle {
+                font-size: 1.9em;
             }
         }
         
@@ -626,12 +637,22 @@
                 height: 210px;
                 max-width: 580px;
             }
+            
+            .header-title h1 {
+                font-size: 3em;
+            }
+            
+            .header-title .subtitle {
+                font-size: 1.6em;
+            }
         }
         
         @media (max-width: 600px) {
             .header {
                 padding: 20px;
+                flex-direction: column;
                 text-align: center;
+                gap: 20px;
             }
             
             .logo {
@@ -639,12 +660,12 @@
                 margin: 0 auto;
             }
             
-            .name-title h1 {
-                font-size: 3em;
+            .header-title h1 {
+                font-size: 2.5em;
             }
             
-            .name-title .subtitle {
-                font-size: 1.6em;
+            .header-title .subtitle {
+                font-size: 1.4em;
             }
             
             .section-grid {
@@ -688,20 +709,18 @@
 </head>
 <body>
 
-    <!-- HEADER WITH ENHANCED LOGO ON MATCHING GREY BACKGROUND -->
+    <!-- HEADER WITH LOGO AND TITLE ON SAME ROW -->
     <div class="header">
         <img src="/images/qcons.png" alt="Q CONS Logo" class="logo">
+        <div class="header-title">
+            <h1>Georgi Gerov</h1>
+            <div class="subtitle">Transformation Enterprise Quality Expert</div>
+        </div>
     </div>
 
-    <!-- MAIN CONTENT - CENTERED -->
+    <!-- MAIN CONTENT - CARDS CENTERED -->
     <div class="main-content">
         
-        <!-- Name and Title -->
-        <div class="name-title">
-            <h1>Georgi Gerov</h1>
-            <div class="subtitle">Transformation Enterprise Quality Executive</div>
-        </div>
-
         <!-- Horizontal Cards - ALL ON ONE ROW -->
         <div class="section-grid">
             <!-- About Me Card with Photo -->
@@ -1217,7 +1236,7 @@
 
     <!-- FOOTER - CENTERED AT BOTTOM -->
     <div class="footer">
-        © 2026 Georgi Gerov | Transformational Enterprise Quality Executive
+        © 2026 Georgi Gerov | Transformation Enterprise Quality Expert
     </div>
 
     <!-- JavaScript -->
